@@ -1,4 +1,9 @@
 
+// TODO: Like, everything my dude.
+
+// Srsly tho, this script is supposed to pre-populate our backend once sheetsConnector has finished parsing stuff.
+// Doesn't do anything yet.
+// TODO: Write all the code.
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,

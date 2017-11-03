@@ -1,8 +1,9 @@
-var fs = require('fs');
-var google = require('googleapis');
+const fs = require('fs');
+const google = require('googleapis');
 const authorize = require('./auth.js');
 const uuid = require('./uuid.js');
 
+// Reads your secrets from a file and kick starts the process.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   if (err) {
     console.log('Error loading client secret file: ' + err);
@@ -12,6 +13,7 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   authorize(JSON.parse(content), fetchData);
 });
 
+// Fetches data from a sheet, should prolly generalize this.
 function fetchData(auth) {
   let sheets = google.sheets('v4');
   sheets.spreadsheets.values.get({
@@ -27,13 +29,14 @@ function fetchData(auth) {
   });
 }
 
+// Callback for parsing the aquired sheet-data into a most lovable JSON-format.
 function parseJSON(response) {
   const { values } = response; // Values are rows of data
   if (!values || values.size === 0) return console.log('Data was empty.');
 
   const labels = values[0];
   const parsedData = values.map((row, index) => {
-    
+
     return {
       id: uuid(),
       [labels[0]]: row[0],

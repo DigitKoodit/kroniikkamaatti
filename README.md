@@ -1,13 +1,17 @@
-## This is a starter template for Digit ry's Koodikerho
+## Kroniikkamaatti
 
-This workshop has the different steps of the workshop split into branches the master branch includes the initial setup, other steps are covered by branches named `step-X` where X notes the number of the step.
+A web application for collecting freshman chronicles.
 
-You need the following for this workshop:
+You need the following to work with this app:
 
 ```
 git
 node version >= 6.11.1 (6.11.1 recommended, check out node version manager)
 this repository
+
+# For accessing the utils
+api-secrets from google
+a .env file from github.com/juliusrajala
 ```
 
 ### Getting started
@@ -28,4 +32,4 @@ You can find the guide for working with Create React App [here](https://github.c
 
 [MIT](https://opensource.org/licenses/MIT)
 
-Feel free to use this workshop as you see fit.
+Feel free to use the code in this repository as you see fit.
