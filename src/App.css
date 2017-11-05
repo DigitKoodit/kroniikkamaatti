@@ -24,3 +24,24 @@
 .App-Footer > a:hover {
   color: white;
 }
+
+.Home {
+  padding: 50px;
+  max-width: 600px;
+  display: inline-block;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.Home > h2 {
+  padding: 10px;
+  color: #f44336;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.Home > p {
+  padding: 10px;
+  font-size: 1.3rem;
+  border-left: 5px #f44336 solid;
+}

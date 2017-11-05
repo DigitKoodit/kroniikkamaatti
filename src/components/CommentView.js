@@ -4,20 +4,22 @@ import { pushMessage, ERROR_TYPE } from '../core/api';
 import './CommentView.css';
 
 function sendMessage(studentId, message, callback) {
-  console.log(studentId, message);
   return pushMessage(studentId, message)
     .then(response => {
-      console.log(response);
       if (response.type === ERROR_TYPE) {
         alert(response.message);
       } else {
-        console.log(response);
         callback();
       }
     })
 }
 
 class CommentView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { comment: '' };
+  }
+
   onTextInput(event) {
     const { value } = event.target;
     this.setState({ comment: value })
@@ -26,11 +28,14 @@ class CommentView extends Component {
   sendComment() {
     const { freshman, callback } = this.props;
     const { comment } = this.state;
+    if (comment.length === 0) return;
     return sendMessage(freshman.id, comment, callback);
   }
 
   render() {
     const { freshman, callback } = this.props;
+    const { comment } = this.state;
+    const cantSubmit = comment.length === 0;
 
     return (
       <div className="CommentView">
@@ -38,7 +43,7 @@ class CommentView extends Component {
         <textarea
           onChange={ (event) => this.onTextInput(event) }
         />
-        <button onClick={ () => this.sendComment() }>
+        <button className={cantSubmit ? 'Button--disabled' : ''} onClick={ () => this.sendComment() }>
           Lähetä kroniikka
         </button>
         <button onClick={ () => callback() }>

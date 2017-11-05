@@ -49,3 +49,13 @@
   color: #363636;
   background-color:#F44336;
 }
+
+.Button--disabled {
+  cursor: default;
+  opacity: .7;
+}
+
+.Button--disabled:hover {
+  cursor: default;  
+  opacity: .9;
+}
