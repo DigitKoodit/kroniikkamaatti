@@ -4,15 +4,14 @@ import './GroupView.css';
 
 const GroupView = (props) => {
   const { groupData, viewToggle } = props;
-  const { tutors, students } = groupData;
-
+  const tutors = groupData.filter(student => student.isTutor);
   return(
     <div className="GroupView">
-      <h3>{tutors}</h3>
+      <h3>{tutors.map(tutor => tutor.name).join(' & ')}</h3>
       <ul className="GroupView-Students">
-        { students.map((student, i) =>
+        { groupData.map((student, i) =>
         <li key={i}>
-          <a onClick={ () => viewToggle(student) }>{student.name}</a>
+          <a onClick={ () => viewToggle(student) }>{student.name} {student.isTutor && '- Tuutori'}</a>
         </li>,
         ) }
       </ul>
@@ -21,7 +20,7 @@ const GroupView = (props) => {
 }
 
 GroupView.propTypes = {
-  groupData: PropTypes.object.isRequired,
+  groupData: PropTypes.array.isRequired,
   viewToggle: PropTypes.func.isRequired,
 };
 

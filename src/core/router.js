@@ -14,7 +14,7 @@ const Home = () =>
 
 const routes = [
   { path: '/',
-    guild: 'Home',
+    guild: 'Kroniikkamaatti',
     component: Home,
   },
   { path: '/asteriski',
@@ -46,13 +46,15 @@ const RouteWrapper = (route) =>
   } }/>
 
 const RouterComponent = () => (
-<Router>
-  <div>
-    <Navigation routes={routes} />
-    <hr/>
-    {routes.map((route, i) => (
-      <RouteWrapper key={i} {...route}/>
-      ))}
+  <Router>
+    <div className="App">
+      <Navigation routes={routes} />
+      <div className="App-Content">
+      {routes.map((route, i) => (
+        <RouteWrapper key={i} {...route}/>
+      )) }
+      </div>
+      <footer className="App-Footer">Made with ♥ by <a href="https://github.com/DigitKoodit">Digitkoodit</a>, 2017</footer>
     </div>
   </Router>
 )

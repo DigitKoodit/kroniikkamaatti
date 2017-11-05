@@ -1,43 +1,51 @@
 .CommentView {
-  background-color: lightblue;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   padding: 20px;
-  margin: 20px;
   display: inline-block;
-  width: 300px;
   vertical-align: top;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.19);
+  min-width: 400px;
 }
 
 .CommentView > * {
   display: block;
+  width: 100%;
+}
+
+.CommentView > h3 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: #F44336;
+  padding:20px;
+  text-transform: uppercase;
 }
 
 .CommentView > textarea {
   width: 100%;
   min-height: 100px;
   font-size: 14px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   box-sizing: border-box;
-  border: none;
+  border: 1px solid #363636;
   border-radius: 2px;
 }
 
 .CommentView > button {
-  margin-top: 20px;
+  font-size: 1.2rem;
+  margin-top: 10px;
   width: 100%;
   padding: 12px;
-  color: #363636;
-  background-color: gold;
+  color: white;
+  background-color: #363636;
   font-weight: 600;
   text-transform: uppercase;
-  border-radius: 2px;
+  border-radius: 25px;
   border: none;
   box-shadow: none;
-  transition: transform 12s ease-in-out;
+  cursor: pointer;
 }
 
 .CommentView > button:hover {
-  transform: rotate(920deg);
+  color: #363636;
+  background-color:#F44336;
 }

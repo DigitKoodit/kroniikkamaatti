@@ -12,7 +12,7 @@ class CommentView extends Component {
   }
 
   onTextInput(event) {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState({ comment: value })
   }
 
@@ -27,16 +27,19 @@ class CommentView extends Component {
   }
 
   render() {
-    const { freshman } = this.props;
+    const { freshman, callback } = this.props;
 
     return (
       <div className="CommentView">
-        <h3>{freshman.name} - {freshman.chronicles} kirjoitusta</h3>
+        <h3>{freshman.name} {freshman.isTutor && '- Tuutori'}</h3>
         <textarea
           onChange={ (event) => this.onTextInput(event) }
         />
         <button onClick={ () => this.sendComment() }>
-          Tallenna kroniikka
+          Lähetä kroniikka
+        </button>
+        <button onClick={ () => callback() }>
+          Palaa ryhmiin
         </button>
       </div>
     );

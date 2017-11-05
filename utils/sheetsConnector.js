@@ -13,6 +13,10 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   authorize(JSON.parse(content), fetchData);
 });
 
+function writeJSON(data, fileName) {
+  fs.writeFile(fileName+'.json',JSON.stringify(data));
+}
+
 // Fetches data from a sheet, should prolly generalize this.
 function fetchData(auth) {
   let sheets = google.sheets('v4');
@@ -46,6 +50,7 @@ function parseJSON(response) {
     }
   });
   console.log(parsedData);
+  writeJSON(parsedData, 'data');
 }
 
 const parseBoolean = (str) => str.toLowerCase() === 'true';

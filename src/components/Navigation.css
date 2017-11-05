@@ -1,10 +1,30 @@
 .Navigation {
+  padding: 10px;
   width: 100%;
-  text-align: center;
-  padding: 0;
+  text-align: right;
+  background-color: #F44336;
 }
 
 .Navigation-Link {
   display: inline-block;
-  padding: 10px;
+  padding: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.2rem;
 }
+
+.Navigation-Link > a {
+  text-decoration: none;
+  color: white;
+}
+
+.Navigation-Link > a:hover {
+  color: #363636;
+}
+
+@media (max-width: 600px), (max-device-width:600px) {
+  .Navigation-Link {
+    font-size: .6rem;
+    padding: 10px;
+  }
+} 
