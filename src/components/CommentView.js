@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { pushMessage, ERROR_TYPE } from '../core/api';
 import './CommentView.css';
 
+function sendMessage(studentId, message, callback) {
+  console.log(studentId, message);
+  return pushMessage(studentId, message)
+    .then(response => {
+      console.log(response);
+      if (response.type === ERROR_TYPE) {
+        alert(response.message);
+      } else {
+        console.log(response);
+        callback();
+      }
+    })
+}
+
 class CommentView extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      comment: ''
-    }
-  }
-
   onTextInput(event) {
     const { value } = event.target;
     this.setState({ comment: value })
@@ -19,11 +26,7 @@ class CommentView extends Component {
   sendComment() {
     const { freshman, callback } = this.props;
     const { comment } = this.state;
-
-    return new Promise((resolve, reject) => {
-      console.log(freshman, comment, callback);
-      resolve();
-    }).then(() => callback());
+    return sendMessage(freshman.id, comment, callback);
   }
 
   render() {

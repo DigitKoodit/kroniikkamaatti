@@ -20,23 +20,14 @@ const routes = [
   { path: '/asteriski',
     guild: 'Asteriski',
     component: GuildView,
-    dataLoader: () => {
-      console.log('Fetching Data for Asteriski')
-    }
   },
   { path: '/digit',
     guild: 'Digit',
     component: GuildView,
-    dataLoader: () => {
-      console.log('Fetching Data for Digit')
-    }
   },
   { path: '/nucleus',
     guild: 'Nucleus',
     component: GuildView,
-    dataLoader: () => {
-      console.log('Fetching Data for Nucleus')
-    }
   }
 ];
 

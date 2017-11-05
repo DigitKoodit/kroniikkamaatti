@@ -28,7 +28,6 @@ class GuildView extends Component {
     const { data, guild } = props;
     const filteredData = data.filter(student => student.guild.match(guild));
     const groupedData = groupBy(filteredData, 'tutorGroup');
-    console.log(groupedData, guild);
 
     return selectedFreshman
       ? <CommentView

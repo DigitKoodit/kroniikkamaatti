@@ -4,32 +4,20 @@ import fetchData from '../core/api';
 class DataWrapper extends Component {
   constructor(props) {
     super(props);
-    const { route } = props;
-
     this.state = {
-      loading: !!route.dataLoader,
+      loading: true,
       data: null,
     }
   }
 
   componentWillMount() {
-    console.log('DataWrapper is mounting.');
-    const { route } = this.props;
-
-    if (route.dataLoader) {
-      route.dataLoader();
-
-      fetchData()
-        .then((freshmanData) => {
-          setTimeout(() => {
-            this.setState({
-              loading: false,
-              data: freshmanData
-            });
-          }, 1000);
+    fetchData()
+      .then((freshmanData) => {
+        this.setState({
+          loading: false,
+          data: freshmanData
         });
-    }
-
+      });
   }
 
   componentWillUnmount() {
@@ -37,7 +25,6 @@ class DataWrapper extends Component {
   }
 
   render() {
-    console.log('DataWrapper is rendering');
     const { data, loading } = this.state;
     const { route } = this.props;
 
