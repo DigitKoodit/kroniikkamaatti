@@ -1,0 +1,30 @@
+[
+  {
+    "id": "6ab214c1-3b0c-44e7-bff6-d75e71a692c1",
+    "name": "Kimmo Mallikas",
+    "tutorGroup": "D1",
+    "guild": "Digit",
+    "isTutor": true
+  },
+  {
+    "id": "238efc0d-bdce-4d27-a2f3-fa00952dfc9b",
+    "name": "Laura Laakea",
+    "tutorGroup": "D1",
+    "guild": "Digit",
+    "isTutor": true
+  },
+  {
+    "id": "587d250c-e2be-49e1-9baf-4b1be0c1c8cd",
+    "name": "Kalle Mäkinen",
+    "tutorGroup": "D1",
+    "guild": "Digit",
+    "isTutor": false
+  },
+  {
+    "id": "06c45cc2-914d-415a-b4cb-e28fc82d700e",
+    "name": "Atte Fuksikas",
+    "tutorGroup": "D1",
+    "guild": "Digit",
+    "isTutor": false
+  }
+]
