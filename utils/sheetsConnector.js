@@ -19,9 +19,13 @@ function writeJSON(data, fileName) {
 
 // Fetches data from a sheet, should prolly generalize this.
 function fetchData(auth) {
-  const sheets = google.sheets({version: 'v4', auth});
+  const sheets = google.sheets({
+    version: process.env.GOOGLE_SHEET_API_VERSION || 'v4',
+    auth
+  });
+
   const sheet = {
-    spreadsheetId: '1FlLX-4wZbBbDmUXg-BEaJuDXzwyrRFIA3Hrqa7Tga4A',
+    spreadsheetId: process.env.GOOGLE_SHEET_ID,
     range: 'Sheet1!A1:E'
   };
 
